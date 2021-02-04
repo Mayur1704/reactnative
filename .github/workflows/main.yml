@@ -43,11 +43,11 @@ jobs:
           cd ios && pod install
       - name: Build app
         run: |       
-          xcodebuild -workspace myapp.xcworkspace -scheme myapp archive -archivePath myapp.xcarchive -allowProvisioningUpdates
-          xcodebuild -exportArchive -archivePath ./myapp.xcarchive -exportPath . -exportOptionsPlist myapp/Info.plist
-          mv myapp.ipa ../myapp.ipa
+          xcodebuild -workspace FirstApp.xcworkspace -scheme FirstApp archive -archivePath FirstApp.xcarchive -allowProvisioningUpdates
+          xcodebuild -exportArchive -archivePath ./FirstApp.xcarchive -exportPath . -exportOptionsPlist FirstApp/Info.plist
+          mv FirstApp.ipa ../FirstApp.ipa
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
-          name: myapp.ipa
+          name: FirstApp.ipa
           path: ios/build/
