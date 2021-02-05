@@ -6,7 +6,7 @@ export default class App extends Component<Props> {
   render() {  
     return (  
       <View>  
-        <Text style={styles.welcome}>Hello World JOhn</Text>  
+        <Text style={styles.welcome}>Hello World Gaurav/Text>  
       </View>  
     );  
   }  
