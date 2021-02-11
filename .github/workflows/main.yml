@@ -49,5 +49,5 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
-          name: FirstApp.ipa
+          name: FirstApp01.ipa
           path: ios/build/
