@@ -25,6 +25,7 @@ jobs:
       - name: Install pod dependencies
         run: |
           cd ios && pod install
+          ls -la
       - name: Build app
         run: |       
           xcodebuild -workspace FirstApp.xcworkspace -scheme FirstApp archive -archivePath FirstApp.xcarchive -allowProvisioningUpdates
