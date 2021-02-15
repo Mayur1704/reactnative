@@ -27,7 +27,9 @@ jobs:
           cd ios && pod install
           ls -la
       - name: Build app
-        run: |       
+        run: |
+	  cd ios
+          ls -la     
           xcodebuild -workspace FirstApp.xcworkspace -scheme FirstApp archive -archivePath FirstApp.xcarchive -allowProvisioningUpdates
           xcodebuild -exportArchive -archivePath FirstApp.xcarchive -exportPath . -exportOptionsPlist FirstApp/Info.plist
           mv FirstApp.ipa ../FirstApp.ipa
