@@ -14,22 +14,6 @@ jobs:
       - name: Run tests
         run: |
           npm test
-  build-android:
-    needs: install-and-test
-    runs-on: ubuntu-latest
-    steps: 
-      - uses: actions/checkout@v2
-      - name: Install npm dependencies
-        run: |
-          npm install
-      - name: Build Android Release
-        run: |
-          cd android && chmod +x * && ./gradlew assembleRelease
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: app-release.apk
-          path: android/app/build/outputs/apk/release/
   build-ios:
     needs: install-and-test
     runs-on: macOS-latest
@@ -43,8 +27,8 @@ jobs:
           cd ios && pod install
       - name: Build app
         run: |       
-          xcodebuild -workspace ./FirstApp.xcworkspace -scheme FirstApp archive -archivePath ./FirstApp.xcarchive -allowProvisioningUpdates
-          xcodebuild -exportArchive -archivePath ./FirstApp.xcarchive -exportPath . -exportOptionsPlist FirstApp/Info.plist
+          xcodebuild -workspace FirstApp.xcworkspace -scheme FirstApp archive -archivePath FirstApp.xcarchive -allowProvisioningUpdates
+          xcodebuild -exportArchive -archivePath FirstApp.xcarchive -exportPath . -exportOptionsPlist FirstApp/Info.plist
           mv FirstApp.ipa ../FirstApp.ipa
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
